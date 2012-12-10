@@ -6,6 +6,7 @@ gem 'rails', '3.2.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'thin'
 
 
 # Gems used only for assets and not required
@@ -23,7 +24,12 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.0"
+  gem 'rspec-rails', '~> 2.0'
+  gem 'quiet_assets'
+end
+
+group :test do
+  gem 'capybara'
 end
 
 # To use ActiveModel has_secure_password
