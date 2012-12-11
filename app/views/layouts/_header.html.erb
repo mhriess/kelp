@@ -1,13 +1,17 @@
-<div class="twelve columns">
-  <nav class="top-bar">
-    <ul>
-      <!-- Title Area -->
-      <li class="name">
-        <h1>
-          <%= link_to "Kelp", root_url %>
-        </h1>
-      </li>
-      <li class="toggle-topbar"><a href="#"></a></li>
-    </ul>
-  </nav>
-</div>
+<nav class="top-bar">
+  <ul>
+    <!-- Title Area -->
+    <li class="name">
+      <h1>
+        <%= link_to "Kelp", root_url %>
+      </h1>
+    </li>
+    <!-- <li class="toggle-topbar"><a href="#"></a></li> -->
+  </ul>
+  <ul class="left">
+	  <li class="divider"></li>
+		<li><label><%= link_to "Add Restaurant", new_restaurant_path %></label></li>
+		<li class="divider"></li>
+	</ul>
+
+</nav>
