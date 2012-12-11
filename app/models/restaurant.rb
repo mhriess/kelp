@@ -11,5 +11,7 @@ class Restaurant < ActiveRecord::Base
   validates :state,
     :presence => true
   validates :zipcode,
-    :presence => true
+    :presence => true,
+    :length => { :is => 5 }
+    
 end

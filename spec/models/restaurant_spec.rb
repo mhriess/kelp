@@ -31,7 +31,14 @@ describe Restaurant do
     expect(build(:restaurant, state: nil)).to_not be_valid
   end
   
-  it "is invalid without a zipcode" do
-    expect(build(:restaurant, zipcode: nil)).to_not be_valid
+  describe "zipcode" do
+    it "is invalid without a zipcode" do
+      expect(build(:restaurant, zipcode: nil)).to_not be_valid
+    end
+    
+    it "is exactly five characters" do
+      expect(build(:restaurant, zipcode: "1234")).to_not be_valid
+      expect(build(:restaurant, zipcode: "123456")).to_not be_valid
+    end
   end
 end
