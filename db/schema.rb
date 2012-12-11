@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20121211223438) do
     t.integer  "restaurant_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "ratings"
+    t.integer  "rating"
   end
 
 end

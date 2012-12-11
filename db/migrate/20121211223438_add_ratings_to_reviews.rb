@@ -1,5 +1,5 @@
 class AddRatingsToReviews < ActiveRecord::Migration
   def change
-    add_column :reviews, :ratings, :integer
+    add_column :reviews, :rating, :integer
   end
 end

@@ -14,4 +14,5 @@ class Restaurant < ActiveRecord::Base
     :presence => true,
     :length => { :is => 5 }
     
+  has_many :reviews
 end
