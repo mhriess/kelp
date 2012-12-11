@@ -42,4 +42,26 @@ describe "Restaurants" do
       page.should have_content sushi_one.name
     end
   end
+  
+  context "adding a restaurant" do
+    it "allows a user to add a new restaurant" do
+      visit root_path
+      
+      click_link "Add restaurant"
+      
+      expect {
+        fill_in "Name", with: "Sushi Town"
+        fill_in "Neighborhood", with: "Marina"
+        fill_in "Address", with: "123 Chesnut St."
+        fill_in "City", with: "San Francisco"
+        fill_in "State", with: "CA"
+        fill_in "Zipcode", with: "94949"
+        click_button "Add restaurant"
+      }.to change(Restaurant, :count).by(1)
+      
+      current_path.should eq restaurant_path(Restaurant.last)
+      
+      page.should have_content Restaurant.last.name
+    end
+  end
 end
