@@ -1,0 +1,10 @@
+<ul>
+	<% @restaurants.each do |restaurant| %>
+		<li><%= restaurant.name %></li>
+		<li><%= restaurant.neighborhood %></li>
+		<li><%= restaurant.address %></li>
+		<li><%= restaurant.city %></li>
+		<li><%= restaurant.state %></li>
+		<li><%= restaurant.zipcode %></li>
+	<% end %>
+</ul>
