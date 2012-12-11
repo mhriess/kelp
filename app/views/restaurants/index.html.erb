@@ -9,7 +9,8 @@
 				<%= restaurant.address %><br>
 				<%= restaurant.city %> 
 				<%= restaurant.state %>, 
-				<%= restaurant.zipcode %>
+				<%= restaurant.zipcode %><br>
+				<%= link_to "More info", restaurant_path(restaurant), :id => "more_info_#{restaurant.id}" %>
 			</div>
 		</li>
 	<% end %>

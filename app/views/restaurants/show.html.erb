@@ -1,1 +1,8 @@
-<%= @restaurant.name %>
+<h1><%= @restaurant.name %><br></h1>
+<%= @restaurant.neighborhood %><br>
+<%= @restaurant.address %><br>
+<%= @restaurant.city %> 
+<%= @restaurant.state %>, 
+<%= @restaurant.zipcode %><br>
+<br>
+<%= link_to "Delete Restaurant", restaurant_path(@restaurant), :class => "radius button", :method => :delete, :data => { :confirm => "Are you sure?" } %>
