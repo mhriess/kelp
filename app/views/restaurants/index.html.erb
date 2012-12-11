@@ -2,13 +2,19 @@
 	<%= link_to "Add restaurant", new_restaurant_path %>
 </p>
 
-<ul>
+<ul class="accordion">
 	<% @restaurants.each do |restaurant| %>
-		<li><%= link_to "#{restaurant.name}", restaurant_path(restaurant) %></li>
-		<li><%= restaurant.neighborhood %></li>
-		<li><%= restaurant.address %></li>
-		<li><%= restaurant.city %></li>
-		<li><%= restaurant.state %></li>
-		<li><%= restaurant.zipcode %></li>
+		<li>
+		  <div class="title">
+		    <h5><%= restaurant.name %></h5>
+		  </div>
+			<div class="content">
+				<strong><%= restaurant.neighborhood %></strong><br>
+				<%= restaurant.address %><br>
+				<%= restaurant.city %> 
+				<%= restaurant.state %>, 
+				<%= restaurant.zipcode %>
+			</div>
+		</li>
 	<% end %>
 </ul>

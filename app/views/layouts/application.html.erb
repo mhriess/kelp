@@ -24,6 +24,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= yield %>
+	<div>
+		<%= render 'layouts/header' %>
+	</div>
+	
+	<div class="twelve columns">
+    <%= yield %>
+  </div>
 </body>
 </html>
