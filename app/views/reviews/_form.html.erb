@@ -1,0 +1,15 @@
+<fieldset class="six columns">
+	<legend>New Review</legend>
+		<%= form_for @review do |f| %>
+			<%= f.text_field :reviewer, :placeholder => "Reviewer" %>
+			
+			<label>Select Restaurant</label>
+			
+			<%= select("review", "restaurant_id", Restaurant.all.collect {|p| [p.name, p.id] }) %>
+
+	
+			<%= f.text_area :body, :placeholder => "Review" %>
+	
+			<%= f.submit "Submit review", :class => "radius button" %>
+		<% end %>
+</fieldset>

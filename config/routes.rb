@@ -2,6 +2,8 @@ Kelp::Application.routes.draw do
   root :to => "restaurants#index"
   
   resources :restaurants
+  
+  resources :reviews
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
