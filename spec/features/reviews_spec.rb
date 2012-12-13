@@ -33,6 +33,8 @@ describe "Reviews" do
     end
     
     it "updates a restaurant's rating" do
+      sushi_two = create(:restaurant)
+            
       visit root_path
       
       click_link "Add Review"
@@ -40,11 +42,10 @@ describe "Reviews" do
       expect {
         fill_in "Reviewer", with: "Bob Loblaw"
         fill_in "Review", with: Faker::Lorem.paragraph
-        page.select(sushi_one.name)
-        page.select("3")
+        page.select(sushi_two.name)
+        page.select("5")
         click_button "Submit review"
-      }.to change(sushi_one, :rating)
-
+      }.to change{sushi_two.reload.rating}
     end
   end
   
