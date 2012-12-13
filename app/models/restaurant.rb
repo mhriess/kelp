@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  attr_accessible :address, :city, :name, :neighborhood, :state, :zipcode
+  attr_accessible :address, :city, :name, :neighborhood, :state, :zipcode, :rating
   
   validates :name,
     :presence => true,
@@ -15,4 +15,14 @@ class Restaurant < ActiveRecord::Base
     :length => { :is => 5 }
     
   has_many :reviews
+  
+  def calculate_rating(review)
+    self.rating == 0 ? self.rating = review.rating : self.rating = average_rating(review.rating)
+  end
+  
+  private
+  
+  def average_rating(review_rating)
+    (self.rating + review_rating) / 2
+  end
 end

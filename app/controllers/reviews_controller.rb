@@ -5,13 +5,21 @@ class ReviewsController < ApplicationController
   end
   
   def create
+    @review = Review.new(params[:review])
+    @review.rating = params[:rating]
     @restaurant = Restaurant.find(params[:review][:restaurant_id])
-    @review = @restaurant.reviews.build(params[:review])
-    
+    @restaurant.calculate_rating(@review)
+    @restaurant.save
+
     if @review.save
       redirect_to @restaurant
     else
       render 'new'
     end
+  end
+  
+  def show
+    @review = Review.find(params[:id])
+    @restaurant = Restaurant.find(@review.restaurant_id)
   end
 end

@@ -16,4 +16,8 @@ describe Review do
   it "is invalid without a rating" do
     expect(build(:review, rating: nil)).to_not be_valid
   end
+  
+  it "is invalid without a restaurant id" do
+    expect(build(:review, restaurant_id: nil)).to_not be_valid
+  end
 end

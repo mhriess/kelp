@@ -56,6 +56,7 @@ describe "Restaurants" do
         fill_in "City", with: "San Francisco"
         fill_in "State", with: "CA"
         fill_in "Zipcode", with: "94949"
+        save_and_open_page
         click_button "Add restaurant"
       }.to change(Restaurant, :count).by(1)
       

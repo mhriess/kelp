@@ -3,9 +3,13 @@
 		<%= form_for @review do |f| %>
 			<%= f.text_field :reviewer, :placeholder => "Reviewer" %>
 			
-			<label>Select Restaurant</label>
+			<label>Restaurants:</label>
 			
-			<%= select("review", "restaurant_id", Restaurant.all.collect {|p| [p.name, p.id] }) %>
+			<%= select("review", "restaurant_id", Restaurant.all.collect {|p| [p.name, p.id] }, :include_blank => true) %>
+			
+			<label>Stars</label>
+			
+			<%= select_tag(:rating, options_for_select([[1, 1],[2, 2], [3, 3], [4, 4], [5, 5]])) %>
 
 	
 			<%= f.text_area :body, :placeholder => "Review" %>

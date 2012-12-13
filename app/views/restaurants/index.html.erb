@@ -2,26 +2,28 @@
 	<% @restaurants.each do |restaurant| %>
 		<li>
 		  <div class="title" id="restaurant_<%= restaurant.id %>">
-		    <h5><%= restaurant.name %></h5>
+		    <h5><%= restaurant.name %> | Stars: <%= restaurant.rating %></h5>
 		  </div>
 			<div class="content">
+				<strong><%= link_to "#{restaurant.name}", restaurant_path(restaurant), :id => "more_info_#{restaurant.id}" %></strong><br>
 				<strong><%= restaurant.neighborhood %></strong><br>
 				<%= restaurant.address %><br>
 				<%= restaurant.city %> 
 				<%= restaurant.state %>, 
-				<%= restaurant.zipcode %><br>
-				<%= link_to "More info", restaurant_path(restaurant), :id => "more_info_#{restaurant.id}" %>
+				<%= restaurant.zipcode %><br><hr>
+				
+				<h4>Reviews</h4>
+				<dl>
+					<% restaurant.reviews.each do |review| %>
+					  <div id="review_<%=review.id %>">
+						  <dt><strong><%= review.reviewer %></strong></dt>
+						  <dd><%= link_to "#{review.body.slice(0, 50)}", review_path(review) %>...</dd>
+						</div>
+					<% end %>
+				</dl>
 			</div>
 		</li>
 		
-		<ul class="accordion">
-			<% restaurant.reviews.each do |review| %>
-			  <li>
-				  <div class="title" id="review_<%=review.id %>">
-					  <p><%= review.body.slice(0, 50) %></p>
-					</div>
-				</li>
-			<% end %>
-		</ul>
+		
 	<% end %>
 </ul>
