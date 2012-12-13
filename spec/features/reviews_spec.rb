@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Reviews" do
   let! (:sushi_one) { create(:restaurant) }
-  let! (:review_one) {create(:review, restaurant_id: sushi_one.id) }
+  let! (:review_one) { create(:review, restaurant_id: sushi_one.id) }
   
   context "on the root page" do
     it "displays the first 50 characters of a review's body

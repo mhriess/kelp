@@ -16,8 +16,9 @@ class Restaurant < ActiveRecord::Base
     
   has_many :reviews
   
-  def calculate_rating(review)
-    self.rating == 0 ? self.rating = review.rating : self.rating = average_rating(review.rating)
+  def update_rating(rating)
+    self.rating == 0 ? new_rating = rating : new_rating = average_rating(rating)
+    self.update_attributes(:rating => new_rating)
   end
   
   private
