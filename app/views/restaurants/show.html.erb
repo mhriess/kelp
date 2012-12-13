@@ -6,3 +6,10 @@
 <%= @restaurant.zipcode %><br>
 <br>
 <%= link_to "Delete Restaurant", restaurant_path(@restaurant), :class => "radius button", :method => :delete, :data => { :confirm => "Are you sure?" } %>
+<hr>
+<h2>Reviews</h2>
+<% @restaurant.reviews.each do |review| %>
+	<h4>Reviewer: <%= review.reviewer %></h4>
+	<h5>Stars: <%= review.rating %></h5>
+	<p><%= review.body %></p>
+<% end %>

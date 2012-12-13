@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Review do
   it "has a valid factory" do
-    expect(create(:review)).to be_valid
+    create(:restaurant, id: 1)
+    expect(create(:review, restaurant_id: 1)).to be_valid
   end
   
   it "is invalid without a reviewer" do
